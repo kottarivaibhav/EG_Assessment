@@ -82,10 +82,11 @@ const ToDoApp = () => {
 
   return (
     <div
-      className="bg-white rounded-[32px] shadow-md p-[150px] w-[1000px] ml-[256px] mr-[256px] mt-[120px] mb-[120px]"
+      className="bg-white rounded-[32px] sm:rounded-[16px] shadow-md p-[150px] w-[1000px] ml-[256px] sm:ml-[150px] mr-[256px] mt-[120px] mb-[120px] sm:mb-[120px] sm:mt-[120px] sm:overflow-x-hidden  "
       style={{ height: `${containerHeight}px` }}
     >
-      <h1 className="text-[44px] font-semibold text-left mb-6 font-rubik w-[360px]" style={{ color: '#11175E' }}>
+      
+      <h1 className="text-[24px] sm:text-[44px] font-semibold text-left mb-4 sm:mb-6 font-rubik w-full sm:w-[360px]" style={{ color: '#11175E' }}>
         Daily To-Do List
       </h1>
       <div className="flex mb-5 h-[55px] relative ml">
