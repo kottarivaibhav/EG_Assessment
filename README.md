@@ -1,6 +1,14 @@
 # To-Do App
 
 This is a simple To-Do application built with Vite and React.
+[View the live application here](https://todolist103.netlify.app/)
+
+## Intial design of the application.
+![alt text](./public/demo-1.png)
+
+## The design similarity with the Figma template.
+![alt text](./public/demo-2.png)
+
 
 ## Features
 
@@ -20,9 +28,9 @@ Make sure you have Node.js and npm installed on your machine.
 
 1. Clone the repository:
 
-   ```bash
-      git clone https://github.com/your-username/vite-react-todo-app.git
-   ```
+  ```bash
+     git clone https://github.com/your-username/vite-react-todo-app.git
+  ```
 2. Navigate to the project directory:
 
   ```bash
