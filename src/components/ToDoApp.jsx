@@ -82,28 +82,29 @@ const ToDoApp = () => {
 
   return (
     <div
-      className="bg-white rounded-[32px] sm:rounded-[16px] shadow-md p-[150px] w-[1000px] ml-[256px] sm:ml-[150px] mr-[256px] mt-[120px] mb-[120px] sm:mb-[120px] sm:mt-[120px] sm:overflow-x-hidden  "
+      className="bg-white rounded-[16px] sm:rounded-[32px] shadow-md p-4 sm:p-[150px] w-full lg:w-[1000px]  sm:w-[800px] mx-auto mt-[60px] sm:mt-[120px] mb-[60px] sm:mb-[120px]"
       style={{ height: `${containerHeight}px` }}
     >
-      
       <h1 className="text-[24px] sm:text-[44px] font-semibold text-left mb-4 sm:mb-6 font-rubik w-full sm:w-[360px]" style={{ color: '#11175E' }}>
         Daily To-Do List
       </h1>
-      <div className="flex mb-5 h-[55px] relative ml">
-        <input
-          type="text"
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
-          onKeyPress={handleKeyPress}
-          placeholder="Add new list item"
-          className="border rounded-lg flex-grow p-2 pr-16 h-[110]"
-        />
-        <button
-          onClick={addTask}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white px-4 py-1 rounded-lg"
-        >
-          Add
-        </button>
+      <div className="flex mb-4 sm:mb-5 h-[45px] sm:h-[55px] relative ml">
+        <div className="relative flex-grow">
+          <input
+            type="text"
+            value={newTask}
+            onChange={(e) => setNewTask(e.target.value)}
+            onKeyPress={handleKeyPress}
+            placeholder="Add new list item"
+            className="border rounded-lg w-full p-2 pr-16 h-[45px] sm:h-[55px]"
+          />
+          <button
+            onClick={addTask}
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white px-4 py-1 rounded-lg"
+          >
+            Add
+          </button>
+        </div>
       </div>
       <div className="space-y-2">
         {tasks.map((task, index) => (
@@ -120,9 +121,9 @@ const ToDoApp = () => {
           />
         ))}
       </div>
-      <div className="flex justify-between text-gray-600 mt-5 px-4">
-        <p><span>{tasks.filter(task => task).length} items</span></p>
-        <button onClick={clearTasks} className="text-red-500">Clear All</button>
+      <div className="flex justify-between text-gray-600 mt-4 sm:mt-5 px-2 sm:px-4">
+        <p className="text-sm sm:text-base"><span>{tasks.filter(task => task).length} items</span></p>
+        <button onClick={clearTasks} className="text-red-500 text-sm sm:text-base">Clear All</button>
       </div>
     </div>
   );
