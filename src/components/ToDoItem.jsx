@@ -7,12 +7,12 @@ const ToDoItem = ({ task, onToggle, onDelete, onEdit, isEditing, editTaskText, s
         task.completed ? 'bg-green-100 text-green-500' : 'hover:bg-gray-100'
       }`}
     >
-      <div
-        className={`mr-3 cursor-pointer ${task.completed ? 'text-green-500' : 'text-gray-500'}`}
-        onClick={onToggle}
-      >
-        {task.completed ? '✓' : '•'}
-      </div>
+      <input
+        type="checkbox"
+        checked={task.completed}
+        onChange={onToggle}
+        className="mr-3 cursor-pointer form-checkbox h-5 w-5 text-green-500"
+      />
       {isEditing ? (
         <input
           type="text"

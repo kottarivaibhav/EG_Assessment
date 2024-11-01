@@ -61,8 +61,15 @@ const ToDoApp = () => {
     setEditTaskText('');
   };
 
+  // Handle key press for adding a task
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      addTask();
+    }
+  };
+
   return (
-    <div className="bg-white rounded-[32px] shadow-md p-[110px] w-[1000px] h-[670px] ml-[256px] mr-[256px] mt-[156px] mb-[156px]">
+    <div className="bg-white rounded-[32px] shadow-md p-[150px] w-[1000px] h-[670px] ml-[256px] mr-[256px] mt-[120px] mb-[120px]">
       <h1 className="text-[44px] font-semibold text-left mb-6 font-rubik w-[360px]" style={{ color: '#11175E' }}>
         Daily To-Do List
       </h1>
@@ -71,6 +78,7 @@ const ToDoApp = () => {
           type="text"
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
+          onKeyPress={handleKeyPress}
           placeholder="Add new list item"
           className="border rounded-lg flex-grow p-2 pr-16 h-[110]"
         />
