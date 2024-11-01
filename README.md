@@ -26,16 +26,16 @@ Make sure you have Node.js and npm installed on your machine.
 2. Navigate to the project directory:
 
   ```bash
-   cd vite-react-todo-app
-   ```
+     cd vite-react-todo-app
+  ```
 3. Install the dependencies:
   ```bash
      npm install
-     ```
+  ```
 4. Run the app
   ```bash
      npm run dev
-     ```
+  ```
 ### The app will be available at http://localhost:3000.   
 
 
