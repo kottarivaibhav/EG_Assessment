@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const ToDoItem = ({ task, onToggle, onDelete, onEdit, isEditing, editTaskText, setEditTaskText, onSave }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <div
-      className={`flex items-center p-2 rounded-lg border ${
+      className={`flex items-center p-3 mt-4  rounded-lg border ${
         task.completed ? 'bg-green-100 text-green-500' : 'hover:bg-gray-100'
       }`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <input
         type="checkbox"
@@ -21,7 +25,11 @@ const ToDoItem = ({ task, onToggle, onDelete, onEdit, isEditing, editTaskText, s
           className={`border rounded-lg p-2 flex-grow ${task.completed ? 'line-through' : ''}`}
         />
       ) : (
-        <span className={`flex-grow ${task.completed ? 'line-through' : ''}`}>{task.text}</span>
+        <span
+          className={`flex-grow ${task.completed ? 'line-through' : ''} ${isHovered ? 'text-[#2D70FD]' : ''}`}
+        >
+          {task.text} {task.completed && '(done)'}
+        </span>
       )}
       <div className="ml-auto flex space-x-2">
         {isEditing ? (

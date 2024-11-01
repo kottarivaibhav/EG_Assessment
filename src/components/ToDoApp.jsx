@@ -6,6 +6,7 @@ const ToDoApp = () => {
   const [newTask, setNewTask] = useState('');
   const [isEditing, setIsEditing] = useState(null);
   const [editTaskText, setEditTaskText] = useState('');
+  const [containerHeight, setContainerHeight] = useState(670); // Initial height
 
   // Load tasks from local storage when the component mounts
   useEffect(() => {
@@ -23,6 +24,7 @@ const ToDoApp = () => {
     if (newTask.trim()) {
       setTasks([...tasks, { text: newTask, completed: false }]);
       setNewTask('');
+      adjustContainerHeight(tasks.length + 1); // Adjust height after adding a task
     }
   };
 
@@ -38,11 +40,13 @@ const ToDoApp = () => {
   const deleteTask = (index) => {
     const updatedTasks = tasks.filter((_, i) => i !== index);
     setTasks(updatedTasks);
+    adjustContainerHeight(updatedTasks.length); // Adjust height after deleting a task
   };
 
   // Clear all tasks
   const clearTasks = () => {
     setTasks([]);
+    adjustContainerHeight(0); // Reset height after clearing tasks
   };
 
   // Edit a task
@@ -68,12 +72,23 @@ const ToDoApp = () => {
     }
   };
 
+  // Adjust container height based on the number of tasks
+  const adjustContainerHeight = (taskCount) => {
+    const baseHeight = 670; // Base height
+    const additionalHeight = 50; // Additional height per task
+    const newHeight = baseHeight + taskCount * additionalHeight;
+    setContainerHeight(newHeight);
+  };
+
   return (
-    <div className="bg-white rounded-[32px] shadow-md p-[150px] w-[1000px] h-[670px] ml-[256px] mr-[256px] mt-[120px] mb-[120px]">
+    <div
+      className="bg-white rounded-[32px] shadow-md p-[150px] w-[1000px] ml-[256px] mr-[256px] mt-[120px] mb-[120px]"
+      style={{ height: `${containerHeight}px` }}
+    >
       <h1 className="text-[44px] font-semibold text-left mb-6 font-rubik w-[360px]" style={{ color: '#11175E' }}>
         Daily To-Do List
       </h1>
-      <div className="flex mb-4 relative ml">
+      <div className="flex mb-5 h-[55px] relative ml">
         <input
           type="text"
           value={newTask}
@@ -104,7 +119,7 @@ const ToDoApp = () => {
           />
         ))}
       </div>
-      <div className="flex justify-between mt-4 text-gray-600 mt-14">
+      <div className="flex justify-between text-gray-600 mt-5 px-4">
         <p><span>{tasks.filter(task => task).length} items</span></p>
         <button onClick={clearTasks} className="text-red-500">Clear All</button>
       </div>
